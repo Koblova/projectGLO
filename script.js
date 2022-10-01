@@ -19,3 +19,5 @@ console.log(screens.toLowerCase()); //нижний регистр
 console.log(screens.split(',')); //перевод в массив
 
 console.log(fullPrice * (rollback/100)); //процент отката
+
+console.log('не работает гит');
