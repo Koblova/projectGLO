@@ -7,15 +7,42 @@ let adaptive = true;
 
 console.log(title); //название проекта
 console.log(fullPrice); // з/п
-console.log(adaptive); //булевое
+console.log(adaptive); //булевое значение
 
 console.log(screens.length); //длина строки
 
-console.log('Стоимость верстки экранов' + ' ' + screenPrice + ' ' + 'рублей' + ';' + ' ' + 'Стоимость разработки сайта' + ' ' + fullPrice + ' ' + 'рублей.'); //стоимость в рублях
+console.log(
+  "Стоимость верстки экранов" +
+    " " +
+    screenPrice +
+    " " +
+    "рублей" +
+    ";" +
+    " " +
+    "Стоимость разработки сайта" +
+    " " +
+    fullPrice +
+    " " +
+    "рублей."
+); //стоимость в рублях
 
-console.log('Стоимость верстки экранов' + ' ' + screenPrice + ' ' + 'рублей' + ';' + ' ' + 'Стоимость разработки сайта' + ' ' + fullPrice + ' ' + 'рублей.'); //стоимость в рублях
+console.log(
+  "Стоимость верстки экранов" +
+    " " +
+    screenPrice +
+    " " +
+    "рублей" +
+    ";" +
+    " " +
+    "Стоимость разработки сайта" +
+    " " +
+    fullPrice +
+    " " +
+    "рублей."
+); //стоимость в рублях
 
 console.log(screens.toLowerCase()); //нижний регистр
-console.log(screens.split(',')); //перевод в массив
+console.log(screens.split(",")); //перевод в массив
 
-console.log(fullPrice * (rollback/100)); //процент отката
+console.log(fullPrice * (rollback / 100)); //процент отката
+
