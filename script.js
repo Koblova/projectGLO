@@ -52,8 +52,8 @@ servicePercentPrice = getServicePercentPrices();
 console.log(allServicePrices); // сумма всех дополнительных услуг
 console.log(servicePercentPrice); // стоимость за вычетом процента отката посреднику
 
-showTypeOf(title); //
-showTypeOf(screens); // 
-showTypeOf(screenPrice); //
+showTypeOf(title); 
+showTypeOf(screens); 
+showTypeOf(screenPrice); 
 
 console.log(getRollbackMessage(fullPrice)); //сообщение о скидке пользователю
