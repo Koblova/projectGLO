@@ -1,42 +1,59 @@
 "use strict";
+
 let title = prompt("Как называется ваш проект?");
-console.log(title);
-
 let screens = prompt("Какие типы экранов нужно разработать?");
-console.log(screens);
-
 let screenPrice = prompt("Сколько будет стоить данная работа?");
-console.log(screenPrice);
-
 let adaptive = prompt("Нужен ли адаптив на сайте?");
-console.log(!!adaptive);
-
 let service1 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service1);
-
 let servicePrice1 = prompt("Сколько это будет стоить?");
-console.log(servicePrice1 + " " + "руб.");
-
-
-
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service2);
-
 let servicePrice2 = prompt("Сколько это будет стоить?");
-console.log(servicePrice2 + " " + "руб.");
-
+let rollback = 10;
 let fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
-console.log(fullPrice + " " + "руб.");
+let servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
+let allServicePrices;
 
-let servicePercentPrice = Math.ceil(fullPrice - 15);
+const showTypeOf = function (variable) {
+  console.log(variable, typeof variable);
+};
 
+const getRollbackMessage = function (price) {
+  if (price > 30000) {
+    return "Даем скидку в 10%";
+  } else if (price <= 30000 && price >= 15000) {
+    return "Даем скидку в 5%";
+  } else if (15000 > price && price >= 0) {
+    return "Скидка не предусмотрена";
+  } else if (price < 0) {
+    return "Что то пошло не так";
+  }
+};
 
-if (fullPrice > 30000) {
-    console.log("Даем скидку в 10%");
-} else if (fullPrice <= 30000 && fullPrice >= 15000) {
-    console.log("Даем скидку в 5%");
-} else if (15000 > fullPrice && fullPrice >= 0) {
-    console.log("Скидка не предусмотрена");
-} else if (fullPrice < 0) {
-    console.log("Что то пошло не так");
+let getAllServicePrices = function () {
+  return Number(screenPrice) + Number(servicePrice1);
+};
+allServicePrices = getAllServicePrices();
+
+function getFullPrice() {
+    return Number(screenPrice) + Number(allServicePrices);
 }
+fullPrice = getFullPrice();
+
+function getTitle() {    
+    return title.charAt(0).toUpperCase() + title.slice(1);
+}
+
+function getServicePercentPrices() {    
+    return Number(fullPrice) - Number(rollback);
+}
+servicePercentPrice = getServicePercentPrices();
+
+
+console.log(allServicePrices); // сумма всех дополнительных услуг
+console.log(servicePercentPrice); // стоимость за вычетом процента отката посреднику
+
+showTypeOf(title); //
+showTypeOf(screens); // 
+showTypeOf(screenPrice); //
+
+console.log(getRollbackMessage(fullPrice)); //сообщение о скидке пользователю
