@@ -40,7 +40,11 @@ function getFullPrice() {
 fullPrice = getFullPrice();
 
 function getTitle() {    
-    return title.charAt(0).toUpperCase() + title.slice(1);
+    if (title.charAt(0) == ' ') {
+        return title.charAt(1).toUpperCase() + title.slice(2);
+    } else {
+        return title.charAt(0).toUpperCase() + title.slice(1);
+    }
 }
 
 function getServicePercentPrices() {    
@@ -57,3 +61,4 @@ showTypeOf(screens);
 showTypeOf(screenPrice); 
 
 console.log(getRollbackMessage(fullPrice)); //сообщение о скидке пользователю
+console.log(screens); //типы экранов для разработки
