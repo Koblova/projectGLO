@@ -44,5 +44,5 @@ console.log(
 console.log(screens.toLowerCase()); //нижний регистр
 console.log(screens.split(",")); //перевод в массив
 
-console.log(fullPrice * (rollback / 100)); //процент отката
-
+console.log(getRollbackMessage(fullPrice)); //сообщение о скидке пользователю
+console.log(screens); //типы экранов для разработки
