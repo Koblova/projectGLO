@@ -15,12 +15,17 @@ const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 };
 
+// let x
+// let y
+// const check = function(x, y) {
+//     do {
+//         x = y
+//     } while (!isNumber(screenPrice))
+// }
+
+
 const asking = function() {
-
-    do {
-        title = prompt("Как называется ваш проект?");
-    } while (isNumber(title));
-
+    title = prompt("Как называется ваш проект?", "Калькулятор верстки");
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные");
 
     do {
@@ -30,22 +35,29 @@ const asking = function() {
     adaptive = confirm("Нужен ли адаптив на сайте?");
 };
 
+function doWhile(text) {
+    let item;
+        do {
+            item = prompt(text);  
+        } while (isNumber(item));   
+
+        return item;         
+}
+
 const getAllServicePrices = function () {
     let sum;
+    
     function quastionPrice() {
         do {
             sum = prompt("Сколько это будет стоить?");  
         } while (!isNumber(sum));         
     };
-    function quastionService1() {
-        do {
-            service1 = prompt("Какой дополнительный тип услуги нужен?");  
-        } while (isNumber(service1));         
+    
+    function quastionService1() {  
+        doWhile("Какой дополнительный тип услуги нужен?")     
     };
     function quastionService2() {
-        do {
-            service2 = prompt("Какой дополнительный тип услуги нужен?");  
-        } while (isNumber(service2));         
+        doWhile("Какой дополнительный тип услуги нужен?")       
     };
 
     for (let i = 0; i < 2; i++) {
