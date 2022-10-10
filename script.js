@@ -15,15 +15,6 @@ const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 };
 
-// let x
-// let y
-// const check = function(x, y) {
-//     do {
-//         x = y
-//     } while (!isNumber(screenPrice))
-// }
-
-
 const asking = function() {
     title = prompt("Как называется ваш проект?", "Калькулятор верстки");
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные");
