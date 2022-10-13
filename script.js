@@ -12,7 +12,9 @@ const appData = {
     service1: '',
     service2: '',
 
-
+    isNumber: function (num) {
+        return !isNaN(parseFloat(num)) && isFinite(num);
+    },
 
     asking: function() {
         appData.title = prompt("Как называется ваш проект?", "Калькулятор верстки");
@@ -20,7 +22,7 @@ const appData = {
     
         do {
             appData.screenPrice = prompt("Сколько будет стоить данная работа?");
-        } while (!isNumber(appData.screenPrice));
+        } while (!appData.isNumber(appData.screenPrice));
         
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
@@ -38,7 +40,7 @@ const appData = {
     
             do {
                 price = prompt("Сколько это будет стоить?")
-            } while (!isNumber(price))
+            } while (!appData.isNumber(price))
     
             sum += +price
         }
@@ -74,6 +76,7 @@ const appData = {
         console.log(appData.servicePercentPrice);
     },
     start: function () {
+        
         appData.asking();     
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
@@ -87,11 +90,5 @@ const appData = {
     },
 
 }
-
-const isNumber = function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num);
-}
-
-
 
 appData.start();
