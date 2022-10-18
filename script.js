@@ -28,13 +28,17 @@ const appData = {
         return !/[^a-z, а-я]/i.test(text);
     },
 
+    isEmpty: function(empty) {
+        return (empty.length === 0 || !empty.trim());
+    },
+    
     asking: function() {
 
         let title = '';
 
         do {
             title = prompt("Как называется ваш проект?", "Калькулятор верстки");
-        } while (!appData.isText(title));
+        } while (!appData.isText(title) || appData.isEmpty(title));
 
         for (let i = 0; i < 2; i++) {
 
@@ -42,13 +46,13 @@ const appData = {
 
             do {    
                 name = prompt("Какие типы экранов нужно разработать?");
-            } while (!appData.isText(name));
+            } while (!appData.isText(name) || appData.isEmpty(name));
 
             let price = 0;
 
             do {
                 price = prompt("Сколько будет стоить данная работа?");
-            } while (!appData.isNumber(price));
+            } while (!appData.isNumber(price) || appData.isEmpty(price));
             
             appData.screens.push({id: i, name: name, price: price});
         }
@@ -59,13 +63,13 @@ const appData = {
 
             do {
                 name = prompt("Какой дополнительный тип услуги нужен?");
-            } while (!appData.isText(name));
+            } while (!appData.isText(name) || appData.isEmpty(name));
 
             let price = 0;
     
             do {
                 price = prompt("Сколько это будет стоить?");
-            } while (!appData.isNumber(price));
+            } while (!appData.isNumber(price) || appData.isEmpty(price));
 
             appData.services[name] = +price;
         }
