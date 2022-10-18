@@ -22,25 +22,24 @@ const appData = {
         appData.addPrices();
         appData.getFullPrice();
         appData.getServicePercentPrices();
-        // appData.getTitle();
         appData.logger();
-
-        for (let key in appData) {
-            console.log(appData[key]);
-        };
     },
 
     isNumber: function (num) {
-        return !isNaN(parseFloat(num)) && isFinite(num);
+        return !isNaN(parseFloat(num)) || isFinite(num)
     },
 
+    isText: function (text) {
+        return !/[^a-z, а-я]/i.test(text);
+    },
+    
     asking: function() {
 
         let title = '';
 
         do {
             title = prompt("Как называется ваш проект?", "Калькулятор верстки");
-        } while (appData.isNumber(title));
+        } while (!appData.isText(title));
 
         for (let i = 0; i < 2; i++) {
 
@@ -48,7 +47,7 @@ const appData = {
 
             do {    
                 name = prompt("Какие типы экранов нужно разработать?");
-            } while (appData.isNumber(name));
+            } while (!appData.isText(name));
 
             let price = 0;
 
@@ -65,7 +64,7 @@ const appData = {
 
             do {
                 name = prompt("Какой дополнительный тип услуги нужен?");
-            } while (appData.isNumber(name));
+            } while (!appData.isText(name));
 
             let price = 0;
     
@@ -114,8 +113,9 @@ const appData = {
     logger: function () {
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
-        console.log(appData.screens);
+        //console.log(appData.screens);
     },
 };
 
 appData.start();
+
