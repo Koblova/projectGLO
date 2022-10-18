@@ -1,10 +1,5 @@
 "use strict";
 
-const isString = (str, comma = false) => {
-    const pattern = comma ? /^[, а-яА-ЯёЁa-zA-Z]+$/ : /^[ а-яА-ЯёЁa-zA-Z]+$/;
-    return pattern.test(str);
-};
-
 const appData = {
     title: '',
     screens: [],
@@ -32,7 +27,7 @@ const appData = {
     isText: function (text) {
         return !/[^a-z, а-я]/i.test(text);
     },
-    
+
     asking: function() {
 
         let title = '';
